@@ -1,0 +1,23 @@
+<h1>Add new patient</h1>
+
+<%= form_tag action: :create do %>
+
+<p><label for = "patient_first_name">Firstname</label>:
+<%= text_field 'patient', 'first_name' %></p>
+
+<p><label for = "patient_last_name">Lastname</label>:
+<%= text_field 'patient', 'last_name' %></p>
+
+<p><label for = "patient_address">Address</label>:
+<%= text_field 'patient', 'address' %></p>
+
+<p><label for = "patient_cnp">CNP</label>:
+<%= text_field 'patient', 'cnp' %></p>
+
+<p><label for = "patient_ensurance_id">Ensurance id</label>:
+<%= text_field 'patient', 'ensurance_id' %></p>
+
+<%= submit_tag "Create" %>
+
+<% end -%>
+<%= link_to 'Back', {action: :list} %>

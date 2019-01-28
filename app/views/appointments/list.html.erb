@@ -1,0 +1,29 @@
+<ul id = "patients">
+   <% Patient.all.each do |c| %>
+   <li><%= link_to c.full_name, :action => "show_patients", :id => c.id %></li>
+   <% end %>
+</ul>
+
+<ul id = "medicines">
+   <% Medicine.all.each do |c| %>
+   <li><%= link_to c.name, :action => "show_medicines", :id => c.id %></li>
+   <% end %>
+</ul>
+
+<% if @appointments.blank? %>
+<p>There are not any appointments currently in the system.</p>
+<% else %>
+<p>These are the current appointments in our system</p>
+
+<ul id = "appointments">
+   <% @appointments.each do |appointment| %>
+   <li>
+   <%= link_to appointment.appointment_date, {action: :show, id: appointment.id} -%>
+   <b> <%= link_to 'Edit', {action: :edit, id: appointment.id} %></b>
+   <b> <%= link_to "Delete", {action: :delete, id: appointment.id}, data: {confirm: "Are you sure?"}%></b>
+   </li>
+   <% end %>
+</ul>
+
+<% end %>
+<p><%= link_to "Add new Appointment", {action: :new }%></p>

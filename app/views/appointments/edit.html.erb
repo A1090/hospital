@@ -1,0 +1,14 @@
+<h1>Edit Appointment Details</h1>
+
+<%= form_for @appointment, :url =>{action: :update, id: @appointment.id} do |f| %>
+
+<p>Patient: <%= f.collection_select :patient_id, @patients, :id, :full_name %></p>
+<p>Medicine: <%= f.collection_select :medicine_id, @medicines, :id, :name %></p>
+<p>Appointment date: <%= f.date_field 'appointment_date' %></p>
+<p>Diagnostic: <%= f.text_field  'diagnostic' %></p>
+<p>Medicine dose: <%= f.text_field 'medicine_dose' %></p>
+
+<%= f.submit "Save changes" %>
+<% end %>
+
+<%= link_to 'Back', {action: :list} %>

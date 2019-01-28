@@ -1,0 +1,12 @@
+<h1>Edit Doctor Details</h1>
+
+<%= form_for @doctor, :url =>{action: :update, id: @doctor.id} do |f| %>
+
+<p>Firstname: <%= f.text_field 'first_name' %></p>
+<p>Lastname: <%= f.text_field  'last_name' %></p>
+<p>Address: <%= f.text_field  'specialization' %></p>
+
+<%= f.submit "Save changes" %>
+<% end %>
+
+<%= link_to 'Back', {action: :list} %>

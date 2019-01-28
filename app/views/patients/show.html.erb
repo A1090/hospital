@@ -1,0 +1,11 @@
+<h1><%= @patient.first_name + " " + @patient.last_name %></h1>
+
+<p>
+   <strong>Address: </strong> <%= @patient.address %><br />
+   <strong>CNP:</strong> <%= @patient.cnp %><br />
+   <strong>Ensurance id:</strong> <%= @patient.ensurance_id %><br />
+</p>
+
+<hr />
+
+<%= link_to 'Back', {action: :list} %>

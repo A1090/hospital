@@ -1,0 +1,11 @@
+<h1>Add new medicine</h1>
+
+<%= form_tag action: :create do %>
+
+<p><label for = "medicine_name">Name</label>:
+<%= text_field 'medicine', 'name' %></p>
+
+<%= submit_tag "Create" %>
+
+<% end -%>
+<%= link_to 'Back', {action: :list} %>

@@ -1,0 +1,17 @@
+<h1>Add new doctor</h1>
+
+<%= form_tag action: :create do %>
+
+<p><label for = "doctor_first_name">Firstname</label>:
+<%= text_field 'doctor', 'first_name' %></p>
+
+<p><label for = "doctor_last_name">Lastname</label>:
+<%= text_field 'doctor', 'last_name' %></p>
+
+<p><label for = "doctor_address">Specialization</label>:
+<%= text_field 'doctor', 'specialization' %></p>
+
+<%= submit_tag "Create" %>
+
+<% end -%>
+<%= link_to 'Back', {action: :list} %>

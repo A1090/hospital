@@ -1,0 +1,23 @@
+<h1>Add new Appointment</h1>
+
+<%=  form_for @appointment, as: :appointment, url: appointments_create_path(@appointment), method: :post do %>
+
+<p><label for = "appointment_patient_id">Patient</label>:
+<%= collection_select(:appointment, :patient_id, @patients, :id, :full_name, prompt: true) %></p>
+
+<p><label for = "appointment_medicine_id">Medicine</label>:
+<%= collection_select(:appointment, :medicine_id, @medicines, :id, :name, prompt: true) %></p>
+
+<p><label for = "appointment_appointment_date">Appointment date</label>:
+<%= date_field 'appointment', 'appointment_date' %></p>
+
+<p><label for = "appointment_diagnostic">Diagnostic</label>:
+<%= text_field 'appointment', 'diagnostic' %></p>
+
+<p><label for = "appointment_medicine_dose">Medicine dose</label>:
+<%= text_field 'appointment', 'medicine_dose' %></p>
+
+<%= submit_tag "Create" %>
+
+<% end %>
+<%= link_to 'Back', {action: :list} %>

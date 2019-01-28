@@ -1,0 +1,11 @@
+<h1> Appointment #<%= @appointment.id %></h1>
+
+<p>
+   <strong>Patient: </strong> <%= link_to @appointment.patient.full_name, :action => "show_patients", :id => @appointment.patient.id %><br />
+   <strong>Medicine :</strong> <%= link_to @appointment.medicine.name, :action => "show_medicines", :id => @appointment.medicine.id %><br />
+   <strong>Appointment date:</strong> <%= @appointment.appointment_date %><br />
+   <strong>Diagnostic: </strong> <%= @appointment.diagnostic %><br />
+   <strong>Medicine dose :</strong> <%= @appointment.medicine_dose %><br />
+</p>
+
+<%= link_to 'Back', {action: :list} %>

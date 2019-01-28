@@ -1,0 +1,17 @@
+<% if @medicines.blank? %>
+<p>There are not any medicines currently in the system.</p>
+<% else %>
+<p>These are the current medicines in our system</p>
+
+<ul id = "medicines">
+   <% @medicines.each do |medicine| %>
+   <li>
+   <%= link_to medicine.name, {action: :show, id: medicine.id} -%>
+   <b> <%= link_to 'Edit', {action: :edit, id: medicine.id} %></b>
+   <b> <%= link_to "Delete", {action: :delete, id: medicine.id},data: {confirm: "Are you sure?"}%></b>
+   </li>
+   <% end %>
+</ul>
+
+<% end %>
+<p><%= link_to "Add new Medicine", {action: :new }%></p>

@@ -1,0 +1,17 @@
+<% if @doctors.blank? %>
+<p>There are not any doctors currently in the system.</p>
+<% else %>
+<p>These are the current doctors in our system</p>
+
+<ul id = "doctors">
+   <% @doctors.each do |doctor| %>
+   <li>
+   <%= link_to doctor.first_name, {action: :show, id: doctor.id} -%>
+   <b> <%= link_to 'Edit', {action: :edit, id: doctor.id} %></b>
+   <b> <%= link_to "Delete", {action: :delete, id: doctor.id},data: {confirm: "Are you sure?"}%></b>
+   </li>
+   <% end %>
+</ul>
+
+<% end %>
+<p><%= link_to "Add new Doctor", {action: :new }%></p>
