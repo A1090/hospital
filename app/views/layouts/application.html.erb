@@ -10,6 +10,52 @@
   </head>
 
   <body>
+    <% if current_user.present?%>
+    <nav class="navbar-expand-md fixed-top bg-dark navbar-dark text-center">
+      <div class="container" align="center">
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbar2SupportedContent" aria-controls="navbar2SupportedContent" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
+        <div class="collapse navbar-collapse justify-content-center" id="navbar2SupportedContent">
+          <%= link_to '<button class="btn navbar-btn mx-2 text-white btn-outline-dark"><i class="fa fa-fw fa-home"></i><b>Home</b></button>'.html_safe, welcome_index_path %>
+          <%= link_to '<button class="btn navbar-btn mx-2 text-white btn-outline-dark"><i class="fa fa-fw fa-child"></i><b>Patients</b></button>'.html_safe, patients_list_path %>
+          <%= link_to '<button class="btn navbar-btn mx-2 text-white btn-outline-dark"><i class="fa fa-fw fa-child"></i><b>Doctors</b></button>'.html_safe, doctors_list_path %>
+          <%= link_to '<button class="btn navbar-btn mx-2 text-white btn-outline-dark"><i class="fa fa-fw fa-folder-open"></i><b>Medicines</b></button>'.html_safe, medicines_list_path %>
+          <%= link_to '<button class="btn navbar-btn mx-2 text-white btn-outline-dark"><i class="fa fa-fw fa-book"></i><b>Appointments</b></button>'.html_safe, appointments_list_path %>
+        <b class='text-white'><%= current_user.email %></b>
+        <%= link_to '<button class="btn navbar-btn mx-2 text-white btn-outline-dark"><b>Log out</b></button>'.html_safe, destroy_user_session_path, :method => :delete %>
+        </div>
+      </div>
+        <%end%>
+  </nav>
     <%= yield %>
+      <footer class="text-md-left text-center p-4 bg-dark text-light">
+    <div class="container">
+      <div class="row">
+        <div class="my-3 col-md-9 col-lg-7">
+          <h3>MedClinic</h3>
+          <p class="text-muted">Last update: 12 dec 2018</p>
+          <p class="my-3">e-mail: medclinic@gmail.ro
+            <br>phone: +4 0786 266 754
+            <br> </p>
+        </div>
+        <div class="my-3 col-lg-4">
+          <h3 class="text-center">Follow us!</h3>
+          <a href="https://www.facebook.com" target="blank"><i class="fa fa-facebook-square text-muted fa-3x m-2"></i></a>
+          <a href="https://www.instagram.com" target="blank"><i class="fa fa-3x fa-instagram text-muted m-2"></i></a>
+          <a href="https://twitter.com" target="blank"></a>
+          <a href="https://plus.google.com" target="blank"></a>
+          <a href="https://pinterest.com" target="blank"><i class="fa fa-3x text-muted fa-pinterest-p m-2"></i></a>
+          <a href="https://www.youtube.com" target="blank"><i class="fa fa-3x text-muted fa-youtube-play m-2"></i></a>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <p class="text-muted">© Copyright 2017 MedClinic- All rights reserved. </p>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
   </body>
 </html>

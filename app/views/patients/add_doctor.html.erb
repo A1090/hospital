@@ -1,0 +1,54 @@
+
+        <div class="section-parallax h-100 py-5 opaque-overlay" style="background-image: url('https://singularityhub.com/wp-content/uploads/2018/07/healthcare_shutterstock_277918613-1068x601.jpg');">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h5 class="display-5 text-left pl-5 text-white"></h5>
+                    </div>
+                </div>
+            </div>
+            <div class="container-">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h1 class="display-1"></h1>
+                    </div>
+                </div>
+            </div>
+              <div class="container">
+                <div class="row">
+                  <div class="col-md-6"></div>
+                  <div class="col-md-6 text-center">
+                      <% if @doctors.blank?%>
+                      <div class="row">
+                        <div class="col-md-6">
+                          <h3 class='display-1'>&nbsp</h3>
+                        </div>
+                      </div>
+                        <div class="card text-center">
+                          <div class="card-body" >
+                            <h5 class="card-title">There are no doctors left to assign to this patient</h5>
+                            <%= link_to '<button class="btn btn-primary" href="#" >Back</button>'.html_safe, {action: :list}  %>
+                        </div>
+                      <%else%>   
+                      <%= form_tag action: :create_doctor, patient_id: @patient.id do %>
+                        <div class="col-md-12">
+                          <h3 class="display-5 text-left  text-center text-white">Add a new doctor for patient <%= @patient.first_name%></h3>
+                        </div>
+                        <div class="col-md-12">
+                          <h5 class="display-5 text-left pl-5 text-white">&nbsp</h5>
+                        </div>
+                        <div class="form-group row"> <label for="patient_first_name" class="col-5 col-form-label text-white">Doctor name</label>
+                          <div class="col-3">
+                          <%=collection_select(:doctors_patient, :doctor_id, @doctors, :id, :full_name) %> </div>
+                        </div>
+                        <div class="col-md-5"><h1>&nbsp</h1></div>
+                        <button type="submit" class="btn btn-primary w-25">Add</button>
+                        <%end%>
+                      <% end %>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12">
+              <h1 class="display-1 text-left pl-5 text-white">&nbsp</h1>
+            </div>
+          </div>

@@ -19,11 +19,14 @@ class MedicinesController < ApplicationController
   
     if @medicine.save
       redirect_to :action => 'list'
+    else
+      @error = @medicine.errors
+      render file: "app/views/error"
     end
   end
 
   def medicine_params
-    params.require(:medicine).permit(:name)
+    params.require(:medicine).permit(:name, :company, :substances)
   end
 
   def edit
@@ -33,12 +36,19 @@ class MedicinesController < ApplicationController
   def update
     if @medicine.update_attributes(medicine_params)
       redirect_to :action => 'show', :id => @medicine
+    else
+      @error = @medicine.errors
+      render file: "app/views/error"
     end
   end
 
   def delete
-    @medicine.destroy
-    redirect_to :action => 'list'
+    if current_user.admin
+      @medicine.destroy
+      redirect_to :action => 'list'
+    else
+      @error = "The current user is not an admin."
+    end
   end
 
   private
@@ -48,6 +58,6 @@ class MedicinesController < ApplicationController
   end
 
   def load_medicines
-    @medicines = Medicine.all
+    @medicines = Medicine.all.order(created_at: :desc)
   end
 end

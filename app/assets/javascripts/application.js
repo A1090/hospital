@@ -15,3 +15,7 @@
 //= require turbolinks
 //= require_tree .
 //= require bootstrap-datepicker
+$(window).scroll(function(){
+  var scrollTop = $(this).scrollTop();
+  $('.header-bg').css('top', -(scrollTop * 2) + 'px');
+});

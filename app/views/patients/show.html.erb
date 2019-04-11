@@ -1,11 +1,47 @@
-<h1><%= @patient.first_name + " " + @patient.last_name %></h1>
 
-<p>
-   <strong>Address: </strong> <%= @patient.address %><br />
-   <strong>CNP:</strong> <%= @patient.cnp %><br />
-   <strong>Ensurance id:</strong> <%= @patient.ensurance_id %><br />
-</p>
-
-<hr />
-
-<%= link_to 'Back', {action: :list} %>
+<div class="section-parallax h-100 py-5 opaque-overlay" style="background-image: url('https://singularityhub.com/wp-content/uploads/2018/07/healthcare_shutterstock_277918613-1068x601.jpg');">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h2 class="text-left text-white"><%= @patient.full_name %></h2>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <h2 class="display-5">&nbsp</h2>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="list-group text-left">
+            <a class="list-group-item list-group-item-action"> Address: <%= @patient.address %></a>
+            <a class="list-group-item list-group-item-action">CNP: <%= @patient.cnp %></a>
+            <a class="list-group-item list-group-item-action">Ensurance: <%= @patient.ensurance_id %></a>
+          </div>
+        </div>
+        <div class="col-md-6"></div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+       <h2 class="display-5">&nbsp</h2>   
+    </div>
+        </div>
+      <div class="row">
+        <div class="col-md-12 text-left ml-5">
+          <% back_to = params[:back_to] || "patient" %>
+          <% if back_to == "doctors" %>
+            <%= link_to '<button class="btn btn-primary" href="#" >Back</button>'.html_safe, {action: :show_patients, controller: :doctors, id: params[:doctor_id]}  %>
+          <% else %>
+            <%= link_to '<button class="btn btn-primary" href="#" >Back</button>'.html_safe, {action: :list}  %>
+          <% end %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12 text-left ml-5">
+          <h2 class="display-5">&nbsp</h2>
+        </div>
+      </div>
+    </div>
+  

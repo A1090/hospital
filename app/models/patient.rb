@@ -6,6 +6,8 @@ class Patient < ApplicationRecord
   has_many :appointments, dependent: :destroy
   has_many :medicines, through: :appointments
 
+  validates :first_name, :last_name, :cnp, :ensurance_id, presence: true
+
   attr_accessor :full_name
 
   def full_name

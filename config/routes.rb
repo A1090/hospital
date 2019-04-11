@@ -1,6 +1,13 @@
 Rails.application.routes.draw do
-  root 'patients#list'
+  devise_for :users
 
+  devise_scope :user do
+    root 'devise/sessions#new'
+  end
+
+  get 'welcome2/index'
+  get 'welcome/index'
+  
   get 'patients/list'
   get 'patients/new'
   post 'patients/create'
@@ -10,6 +17,15 @@ Rails.application.routes.draw do
   get 'patients/edit'
   get 'patients/delete'
   get 'patients/update'
+  
+  resources :patients do
+    member do
+      get :add_doctor
+      post :create_doctor
+      get :show_doctors
+      get :delete_doctors
+    end
+  end
 
   get 'doctors/list'
   get 'doctors/new'
@@ -20,6 +36,15 @@ Rails.application.routes.draw do
   get 'doctors/edit'
   get 'doctors/delete'
   get 'doctors/update'
+
+  resources :doctors do
+    member do
+      get :add_patient
+      post :create_patient
+      get :show_patients
+      get :delete_patients
+    end
+  end
 
   get 'medicines/list'
   get 'medicines/new'

@@ -1,0 +1,68 @@
+  <div class="section-parallax h-100 py-5" style="background-image: url('https://singularityhub.com/wp-content/uploads/2018/07/healthcare_shutterstock_277918613-1068x601.jpg');">
+    <div class="container my-5 bg-light p-4">
+      <div class="row mx-auto">
+        <div class="col-md-12">
+          <h1 class="mb-3"><b>MedClinic</b></h1>
+          <p class="">The official platform of the MedClinic hospital, where you can see and edit your appointments, see doctors, medicines, and much more. Here, you can find anything, with one click.</p>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3">
+          <div class="btn-group">
+            <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown"><b>Patients</b></button>
+            <div class="dropdown-menu">
+              <%= link_to '<button class="dropdown-item"><b>See/Modify/Delete</b></button>'.html_safe, patients_list_path %>
+                <div class="dropdown-divider"></div>
+                <%= link_to '<button class="dropdown-item"><b>Add</b></button>'.html_safe, patients_new_path %>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="btn-group">
+            <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown"><b>Doctors</b></button>
+            <div class="dropdown-menu">
+              <%= link_to '<button class="dropdown-item"><b>See/Modify/Delete</b></button>'.html_safe, doctors_list_path %>
+                <div class="dropdown-divider"></div>
+                <%= link_to '<button class="dropdown-item"><b>Add</b></button>'.html_safe, doctors_new_path %>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="btn-group">
+            <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown"><b>Medicines</b></button>
+            <div class="dropdown-menu">
+              <%= link_to '<button class="dropdown-item"><b>See/Modify/Delete</b></button>'.html_safe, medicines_list_path %>
+                <div class="dropdown-divider"></div>
+                <%= link_to '<button class="dropdown-item"><b>Add</b></button>'.html_safe, medicines_new_path %>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="btn-group">
+            <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown"><b>Appointments</b></button>
+            <div class="dropdown-menu">
+              <%= link_to '<button class="dropdown-item"><b>See/Modify/Delete</b></button>'.html_safe, appointments_list_path %>
+                <div class="dropdown-divider"></div>
+                <%= link_to '<button class="dropdown-item"><b>Add</b></button>'.html_safe, appointments_new_path %>
+            </div>
+          </div>
+        </div>
+      <div class="row">
+        <div class="col-md-12">
+          <h1 class="display-1">&nbsp; </h1>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="py-5 section-aquamarine h-50" id="register">
+    <div class="container">
+      <div class="row">
+        <div class="text-md-left text-center col-md-12">
+          <h1 class="text-white">Message sent!</h1>
+          <p>Thank you for sharing your opinion!</p>
+        </div>
+      </div>
+    </div>
+  </div>

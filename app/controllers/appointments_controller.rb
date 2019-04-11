@@ -22,9 +22,8 @@ class AppointmentsController < ApplicationController
     if @appointment.save
       redirect_to :action => 'list'
    else
-      @patients = Patient.all
-      @medicines = Medicine.all
-      render :action => 'new'
+      @error = @appointment.errors
+      render file: "app/views/error"
    end
   end
 
@@ -40,23 +39,18 @@ class AppointmentsController < ApplicationController
     if @appointment.update_attributes(appointment_params)
       redirect_to :action => 'show', :id => @appointment
     else
-      @patients = Patient.all
-      @medicines = Medicine.all
-      render :action => 'edit'
+      @error = @appointment.errors
+      render file: "app/views/error"
     end
   end
 
   def delete
-    @appointment.destroy
-    redirect_to :action => 'list'
-  end
-
-  def show_patients
-    @patient = Patient.find(params[:id])
-  end
- 
-  def show_medicines
-    @medicine = Medicine.find(params[:id])
+    if current_user.admin
+      @appointment.destroy
+      redirect_to :action => 'list'
+    else
+      @error = "The current user is not an admin."
+    end
   end
 
   private
@@ -66,14 +60,14 @@ class AppointmentsController < ApplicationController
   end
 
   def load_appointments
-    @appointments = Appointment.all
+    @appointments = Appointment.all.order(created_at: :desc)
   end
 
   def load_patients
-    @patients = Patient.all
+    @patients = Patient.all.order(created_at: :desc)
   end
 
   def load_medicines
-    @medicines = Medicine.all
+    @medicines = Medicine.all.order(created_at: :desc)
   end
 end

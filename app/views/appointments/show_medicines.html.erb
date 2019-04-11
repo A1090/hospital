@@ -1,7 +1,0 @@
-<h1><%= @medicine.name %></h1>
-
-<ul>
-   <% @medicine.appointments.each do |c| %>
-   <li><%= link_to c.appointment_date, :action => "show", :id => c.id -%></li>
-   <% end %>
-</ul>

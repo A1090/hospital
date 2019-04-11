@@ -1,11 +1,44 @@
-<h1> Appointment #<%= @appointment.id %></h1>
 
-<p>
-   <strong>Patient: </strong> <%= link_to @appointment.patient.full_name, :action => "show_patients", :id => @appointment.patient.id %><br />
-   <strong>Medicine :</strong> <%= link_to @appointment.medicine.name, :action => "show_medicines", :id => @appointment.medicine.id %><br />
-   <strong>Appointment date:</strong> <%= @appointment.appointment_date %><br />
-   <strong>Diagnostic: </strong> <%= @appointment.diagnostic %><br />
-   <strong>Medicine dose :</strong> <%= @appointment.medicine_dose %><br />
-</p>
-
-<%= link_to 'Back', {action: :list} %>
+<div class="section-parallax h-100 py-5 opaque-overlay" style="background-image: url('https://singularityhub.com/wp-content/uploads/2018/07/healthcare_shutterstock_277918613-1068x601.jpg');">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h2 class="text-left text-white">Appointment #<%= @appointment.id %></h2>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <h2 class="display-5">&nbsp</h2>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="list-group text-left">
+            <a class="list-group-item list-group-item-action">Patient: <%= @appointment.patient.full_name %></a>
+            <a class="list-group-item list-group-item-action">Medicine: <%= @appointment.medicine.name %></a>
+            <a class="list-group-item list-group-item-action">Date: <%= @appointment.appointment_date %></a>
+            <a class="list-group-item list-group-item-action">Diagnosis: <%= @appointment.diagnostic %></a>
+            <a class="list-group-item list-group-item-action">Medicine daily dose: <%= @appointment.medicine_dose %></a>
+          </div>
+        </div>
+        <div class="col-md-6"></div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+       <h2 class="display-5">&nbsp</h2>   
+    </div>
+        </div>
+      <div class="row">
+        <div class="col-md-12 text-left ml-5">
+          <%= link_to '<button class="btn btn-primary" href="#" >Back</button>'.html_safe, {action: :list} %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12 text-left ml-5">
+          <h2 class="display-5">&nbsp</h2>
+        </div>
+      </div>
+    </div>
+ 
