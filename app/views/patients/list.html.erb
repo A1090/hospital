@@ -1,55 +1,57 @@
 <% if @patients.blank? %>
 <div class="section-parallax h-100 py-5 opaque-overlay" style="background-image: url('https://singularityhub.com/wp-content/uploads/2018/07/healthcare_shutterstock_277918613-1068x601.jpg');">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <h2 class="display-5">&nbsp; </h2>
-          <h2 class="text-white text-center">There are not any patients currently in the system</h2>
-        </div>
-      </div>
+  <div class="container">
     <div class="row">
       <div class="col-md-12">
-          <h1 class="display-5">&nbsp; </h1>
-        </div>
-      </div>
-    </div>
-<% else %>
-<div class="section-parallax h-100 py-5 opaque-overlay" style="background-image: url('https://singularityhub.com/wp-content/uploads/2018/07/healthcare_shutterstock_277918613-1068x601.jpg');">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <h2 class="display-5">&nbsp; </h2>
-          <h2 class="text-white text-center">These are the patients currently in your system</h2>
-        </div>
+        <h2 class="display-5">&nbsp; </h2>
+        <h2 class="text-white text-center">There are not any patients currently in the system</h2>
       </div>
     </div>
     <div class="row">
-          <h1 class="display-5">&nbsp; </h1>
-        </div>
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <div class="list-group text-left">
-            <% @patients.each do |patient| %>
-            <div class="row text-center">
-              <div class="col-md-6 text-center">
+      <div class="col-md-12">
+        <h1 class="display-5">&nbsp; </h1>
+      </div>
+    </div>
+  </div>
+</div>
+<% else %>
+<div class="section-parallax h-100 py-5 opaque-overlay" style="background-image: url('https://singularityhub.com/wp-content/uploads/2018/07/healthcare_shutterstock_277918613-1068x601.jpg');">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h2 class="display-5">&nbsp; </h2>
+        <h2 class="text-white text-center">These are the patients currently in your system</h2>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <h1 class="display-5">&nbsp; </h1>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="list-group text-left">
+          <% @patients.each do |patient| %>
+          <div class="row text-center">
+            <div class="col-md-6 text-center">
               <%= link_to patient.first_name, {action: :show, id: patient.id}, class: "list-group-item list-group-item-action" -%> 
-              </div>
-              <div class="col-md-6 text-center">
+            </div>
+            <div class="col-md-6 text-center">
               <b> <%= link_to 'Edit', {action: :edit, id: patient.id} %></b>
               <% if current_user.admin%>
               <b> <%= link_to "Delete", {action: :delete, id: patient.id},data: {confirm: "Are you sure?"}%></b>
               <%end%>
               <b> <%= link_to 'Add doctor', {action: :add_doctor, id: patient.id} %></b>
               <b> <%= link_to 'See doctors', {action: :show_doctors, id: patient.id} %></b>
-              </div>
+            </div>
           </div>
           <% end %>
         </div>
       </div>
+    </div>
   </div>
-  <% end %>
-  <div class="row">
-          <h1 class="display-1">&nbsp; </h1>
-        </div>
-      </div></div>
+</div>
+<% end %>
+<div class="row">
+  <h1 class="display-1">&nbsp; </h1>
+</div>
